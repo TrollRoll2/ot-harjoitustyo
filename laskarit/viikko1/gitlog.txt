@@ -1,0 +1,113 @@
+commit 36b0be19fbe1996c80b0befabc80cf6be5f863cf
+Author: Patrik Backman <patrik.backman@helsinki.fi>
+Date:   Fri Mar 18 14:20:58 2022 +0200
+
+    file22
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 1335285c5900ab43ce3731ed7965dbefb6b6b71b
+Author: Patrik Backman <patrik.backman@helsinki.fi>
+Date:   Fri Mar 18 14:14:52 2022 +0200
+
+    tiedostoja lisätty
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 819859fad45795c741812149e1c28c33cbfc3ba8
+Author: Patrik Backman <patrik.backman@helsinki.fi>
+Date:   Fri Mar 18 14:02:25 2022 +0200
+
+    eka ja kolmas
+
+ eka.txt    | 1 -
+ kolmas.txt | 3 ++-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 5738a6004735f9b09999a2886753e4af8d9a7a42
+Author: Patrik Backman <patrik.backman@helsinki.fi>
+Date:   Fri Mar 18 13:58:07 2022 +0200
+
+    tiedosto.txt uuddelleennimetty
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit dbe7689daaf85025096da1b7bf0226eff188d183
+Author: Patrik Backman <patrik.backman@helsinki.fi>
+Date:   Fri Mar 18 13:53:18 2022 +0200
+
+    toinen poistettu
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 53f98942d8ad5ae21dadfc41f477b5240b061d24
+Author: Patrik Backman <patrik.backman@helsinki.fi>
+Date:   Fri Mar 18 13:48:45 2022 +0200
+
+    hieman lisää tekstiä
+
+ tiedosto.txt | 14 ++++++--------
+ 1 file changed, 6 insertions(+), 8 deletions(-)
+
+commit ff2df0da6d7e5ea99cc3962180e0a98d5a3a7036
+Author: Patrik Backman <patrik.backman@helsinki.fi>
+Date:   Fri Mar 18 13:44:11 2022 +0200
+
+    paljon tekstiä
+
+ tiedosto.txt | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
+
+commit 094b5b8a953b9dca0ae8743cf41de185d819bc16
+Author: Patrik Backman <patrik.backman@helsinki.fi>
+Date:   Fri Mar 18 13:33:38 2022 +0200
+
+    stuff hakemisto
+
+ stuff/jokin.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 36ba98de93fffd0579b46b97902ecd80c62df1a4
+Author: Patrik Backman <patrik.backman@helsinki.fi>
+Date:   Fri Mar 18 13:29:46 2022 +0200
+
+    muutokset toinen ja kolmas
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 411eed5838e5f9a2bdf468027d458b3c15cdb0d6
+Author: Patrik Backman <patrik.backman@helsinki.fi>
+Date:   Fri Mar 18 13:28:15 2022 +0200
+
+    kolmas.txt luotu
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 131a2e46651b7f540cec10a8d3ebbaab2d43cbf9
+Author: Patrik Backman <patrik.backman@helsinki.fi>
+Date:   Fri Mar 18 13:16:58 2022 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 364748d2a70b4b7f4c6a673b3d2051631c295a48
+Author: Patrik Backman <patrik.backman@helsinki.fi>
+Date:   Thu Mar 17 20:31:53 2022 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
