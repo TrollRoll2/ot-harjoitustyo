@@ -1,7 +1,11 @@
 [run]
 source = src
 <<<<<<< HEAD
+<<<<<<< HEAD
 omit = src/tests/**,src/index.py
 =======
 omit = src/**/__init__.py,src/tests/**,src/ui/**,src/index.pyomit = src/tests/**,src/index.py
 >>>>>>> tmp
+=======
+omit = src/tests/**,src/index.py
+>>>>>>> parent of 0d2dd4e... Tehtävät -> 7
