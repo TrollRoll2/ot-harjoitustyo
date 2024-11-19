@@ -1,9 +1,10 @@
-# Ohjelmistotekniikka, harjoitustyö
+# Game-project
 
-I am going to *create* **something**
+As of right now, the project only has the possibility of opening a single pygame instance with a sprite that can be moved with WASD. Further functionality is to be implemented.
 
-[laskarit](https://github.com/TrollRoll2/ot-harjoitustyo/tree/main/laskarit)
 
-[specification](https://github.com/TrollRoll2/ot-harjoitustyo/blob/main/documentation/sepcification.md)
+[specification](https://github.com/TrollRoll2/ot-harjoitustyo/blob/main/documentation/specification.md)
 
 [time tracking](https://github.com/TrollRoll2/ot-harjoitustyo/blob/main/documentation/timetracking.md)
+
+[changelog](https://github.com/TrollRoll2/ot-harjoitustyo/blob/main/documentation/changelog.md)
