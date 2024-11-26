@@ -5,3 +5,7 @@
 | 14.11 | 2h   | Read material |
 | 18.11 | 3h   | Researched stuff needed for the project |
 | 19.11 | 3h   | Recquainted with pygame and its features, created barebones project base |
+| 21.11 | 2h   | Tried getting the virtual environment to work |
+| 24.11 | 2h   | Got the virtual environment to work |
+| 25.11 | 3h   | Refactored the app, added main menu to app |
+| 26.11 | 2h   | improved app, added invoke tests |
