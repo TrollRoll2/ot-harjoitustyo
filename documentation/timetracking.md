@@ -11,3 +11,4 @@
 | 26.11 | 2h   | improved app, added invoke tests |
 | 2.12  | 2h   | Started working on implementing the database |
 | 3.12  | 6h   | Finished work on database, implemented game objective and saving of score after game |
+| Total | 25h  | | 
