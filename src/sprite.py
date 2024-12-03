@@ -1,6 +1,5 @@
 import pygame
 
-
 class Sprite:
     def __init__(self, sprite, coordinates):
         self.image = pygame.image.load(sprite)

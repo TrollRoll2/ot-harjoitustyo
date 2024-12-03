@@ -1,5 +1,7 @@
+from random import randint
 import pygame
 from sprite import Sprite
+from enemy import Enemy
 
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
@@ -29,9 +31,10 @@ def key_handler(key, player, screen_width, screen_height):
     if key[pygame.K_ESCAPE]:
         return False
 
-def screen_render(screen, player, font, score):
+def screen_render(screen, player, enemy, font, score):
     screen.fill((0, 0, 0))
     player.draw(screen)
+    enemy.draw(screen)
     scoretext = f"Score: {score}" #pylint: disable=invalid-name
     text_surface = font.render(scoretext, True, (255, 255, 255))
     text_rect = text_surface.get_rect(topright=(SCREEN_WIDTH/2, 0))
@@ -41,6 +44,7 @@ def screen_render(screen, player, font, score):
 def game():
     screen, clock = init_game()
     player = Sprite("src/images/smiley.png", (SCREEN_WIDTH/2, SCREEN_HEIGHT/2))
+    enemy = Enemy("src/images/enemy.png", (randint(0, SCREEN_WIDTH), randint(0, SCREEN_HEIGHT)))
     font = pygame.font.Font(None, 30)
     score = 0
     running = True
@@ -49,6 +53,13 @@ def game():
         running = event_handler()
         key = pygame.key.get_pressed()
         key_handler(key, player, SCREEN_WIDTH, SCREEN_HEIGHT)
-        screen_render(screen, player, font, score)
+
+        if player.rect.colliderect(enemy.rect):
+            score += 1
+            enemy.respawn(player.rect, SCREEN_WIDTH, SCREEN_HEIGHT)
+
+        screen_render(screen, player, enemy, font, score)
         clock.tick(60)
+
+    return score
     
