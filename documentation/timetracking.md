@@ -14,4 +14,4 @@
 | 20.12 | 3h   | Work on database since it started showing problems |
 | 3.12  | 8h   | Reworked the game, fixed the main gameplay and code|
 | 3.12  | 10h  | Finalized work |
-| Total | 25h  | | 
+| Total | 46h  | | 
