@@ -12,6 +12,6 @@
 | 2.12  | 2h   | Started working on implementing the database |
 | 3.12  | 6h   | Finished work on database, implemented game objective and saving of score after game |
 | 20.12 | 3h   | Work on database since it started showing problems |
-| 3.12  | 8h   | Reworked the game, fixed the main gameplay and code|
-| 3.12  | 10h  | Finalized work |
+| 21.12  | 8h   | Reworked the game, fixed the main gameplay and code|
+| 22.12  | 10h  | Finalized work |
 | Total | 46h  | | 
