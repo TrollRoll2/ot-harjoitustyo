@@ -17,7 +17,7 @@ def setup_db():
         "CREATE TABLE highscores ("
         " id SERIAL PRIMARY KEY, "
         " player VARCHAR(3), "
-        " score INT, "
+        " score INT "
         ");"
     )
     session.execute(sql)
