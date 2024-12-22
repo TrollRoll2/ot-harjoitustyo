@@ -1,15 +1,13 @@
-from random import randint, random
+from random import random
 import pygame
 from player import Sprite
 from square_generator import generate_square
 
-SCREEN_WIDTH = 1000
-SCREEN_HEIGHT = 800
-
-def init_game():
+def init_game(configuration):
     pygame.init()
     pygame.display.set_caption("Square game")
-    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    screen_width, screen_height = configuration.variables["window_size"]
+    screen = pygame.display.set_mode((screen_width, screen_height))
     clock = pygame.time.Clock()
     return screen, clock
 
@@ -19,32 +17,35 @@ def event_handler():
             return False
     return True
 
-def key_handler(key, player, screen_width, screen_height):
+def key_handler(key, player, configuration):
+    screen_width, screen_height = configuration.variables["window_size"]
     if key[pygame.K_w]:
-        player.move(0, -2, screen_width, screen_height)
+        player.move(0, -configuration.variables["player_speed"], screen_width, screen_height)
     if key[pygame.K_a]:
-        player.move(-2, 0, screen_width, screen_height)
+        player.move(-configuration.variables["player_speed"], 0, screen_width, screen_height)
     if key[pygame.K_s]:
-        player.move(0, 2, screen_width, screen_height)
+        player.move(0, configuration.variables["player_speed"], screen_width, screen_height)
     if key[pygame.K_d]:
-        player.move(2, 0, screen_width, screen_height)
+        player.move(configuration.variables["player_speed"], 0, screen_width, screen_height)
     if key[pygame.K_ESCAPE]:
         return False
 
-def screen_render(screen, player, squares, font, score):
+def screen_render(screen, player, squares, font, score, configuration):
+    screen_width, screen_height = configuration.variables["window_size"]
     screen.fill((255, 255, 255))
     player.draw(screen)
     for square in squares:
         square.draw(screen)
     scoretext = f"Score: {score}"
     text_surface = font.render(scoretext, True, (0, 0, 0))
-    text_rect = text_surface.get_rect(center=(SCREEN_WIDTH/2, 10))
+    text_rect = text_surface.get_rect(center=(screen_width/2, 10))
     screen.blit(text_surface, text_rect)
     pygame.display.flip()
 
-def game():
-    screen, clock = init_game()
-    player = Sprite((SCREEN_WIDTH/2, SCREEN_HEIGHT/2))
+def game(configuration):
+    screen, clock = init_game(configuration)
+    screen_width, screen_height = configuration.variables["window_size"]
+    player = Sprite((screen_width/2, screen_height/2))
     squares = []
     font = pygame.font.Font(None, 30)
     score = 0
@@ -53,22 +54,22 @@ def game():
     while running:
         running = event_handler()
         key = pygame.key.get_pressed()
-        key_handler(key, player, SCREEN_WIDTH, SCREEN_HEIGHT)
+        key_handler(key, player, configuration)
         for square in squares:
             if player.rect.colliderect(square.rect):
                 if player.size > square.size:
                     score += square.size // 5
-                    player.grow(2)
+                    player.grow(configuration.variables["player_growth"])
                     square.collision = True
                 else:
                     return score
-                
-        if random() < 0.02:
-            new_square = generate_square(SCREEN_WIDTH + player.size, player.size)
+
+        if random() < configuration.variables["square_spawnrate"]:
+            new_square = generate_square(screen_width + player.size, player.size, configuration.variables["square_speed"])
             squares.append(new_square)
         squares = [square for square in squares if not square.move()]
 
-        screen_render(screen, player, squares, font, score)
+        screen_render(screen, player, squares, font, score, configuration)
         clock.tick(60)
 
     return score

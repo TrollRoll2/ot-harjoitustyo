@@ -20,7 +20,7 @@ class Square:
             self.coordinates[0] > 3000 or
             self.coordinates[1] < -1000 or
             self.coordinates[1] > 3000 or
-            self.collision == True):
+            self.collision is True):
             return True
         
         return False
