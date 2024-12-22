@@ -20,3 +20,13 @@ def add_score(player, score):
     session.execute(sql, {"player": player, "score": score})
     session.commit()
     session.close()
+
+def highscores():
+    sql = text(
+        "SELECT player, score FROM highscores "
+        "ORDER BY score DESC LIMIT 5;"
+    )
+    result = session.execute(sql)
+    top_scores = result.fetchall()
+    session.close()
+    return [{"player": row[0], "score": row[1]} for row in top_scores]

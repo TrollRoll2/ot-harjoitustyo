@@ -1,4 +1,5 @@
 import pygame
+from db.db_highscore import highscores
 
 def init_menu(configuration):
     screen_width, screen_height = configuration.variables["window_size"]
@@ -18,18 +19,37 @@ def options_menu(configuration):
     screen, clock = init_menu(configuration)
     font = pygame.font.Font(None, 50)
     screen_width, screen_height = configuration.variables["window_size"]
-    player_speed_button = pygame.Rect(screen_width/3, screen_height*(1/6), 400, 100)
-    player_growth_button = pygame.Rect(screen_width/3, screen_height*(1/3), 400, 100)
-    square_speed_button = pygame.Rect(screen_width/3, screen_height*(1/2), 400, 100)
-    square_spawnrate_button = pygame.Rect(screen_width/3, screen_height*(2/3), 400, 100)
-    menu_button = pygame.Rect(screen_width/3, screen_height*(5/6), 400, 100)
+    player_speed_button = pygame.Rect(screen_width/3,
+                                      screen_height*(1/6),
+                                      400,
+                                      100)
+    player_growth_button = pygame.Rect(screen_width/3,
+                                       screen_height*(1/3),
+                                       400,
+                                       100)
+    square_speed_button = pygame.Rect(screen_width/3,
+                                      screen_height*(1/2),
+                                      400,
+                                      100)
+    square_spawnrate_button = pygame.Rect(screen_width/3,
+                                          screen_height*(2/3),
+                                          400,
+                                          100)
+    menu_button = pygame.Rect(screen_width/3,
+                              screen_height*(5/6),
+                              400,
+                              100)
     running = True
     while running:
         screen.fill((255, 255, 255))
-        button(screen, f"Player speed: {configuration.variables["player_speed"]}", font, (0, 0, 0), player_speed_button)
-        button(screen, f"Player growth: {configuration.variables["player_growth"]}", font, (0, 0, 0), player_growth_button)
-        button(screen, f"Square speed: {configuration.variables["square_speed"]}", font, (0, 0, 0), square_speed_button)
-        button(screen, f"Square spawnrate: {configuration.variables["square_spawnrate"]}", font, (0, 0, 0), square_spawnrate_button)
+        button(screen, f"Player speed: {configuration.variables["player_speed"]}",
+               font, (0, 0, 0), player_speed_button)
+        button(screen, f"Player growth: {configuration.variables["player_growth"]}",
+               font, (0, 0, 0), player_growth_button)
+        button(screen, f"Square speed: {configuration.variables["square_speed"]}",
+               font, (0, 0, 0), square_speed_button)
+        button(screen, f"Square spawnrate: {configuration.variables["square_spawnrate"]}",
+               font, (0, 0, 0), square_spawnrate_button)
         button(screen, "Back to Main Menu", font, (0, 0, 0), menu_button)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -56,9 +76,10 @@ def mainmenu(configuration):
     screen, clock = init_menu(configuration)
     font = pygame.font.Font(None, 50)
     screen_width, screen_height = configuration.variables["window_size"]
-    play_button = pygame.Rect(screen_width/2 - 200, screen_height*(1/2) - 150, 400, 100)
-    options_button = pygame.Rect(screen_width/2 - 200, screen_height*(1/2), 400, 100)
-    exit_button = pygame.Rect(screen_width/2 - 200, screen_height*(1/2) + 150, 400, 100)
+    play_button = pygame.Rect(screen_width/2 - 200, screen_height*(1/2) - 50, 400, 100)
+    options_button = pygame.Rect(screen_width/2 - 200, screen_height*(1/2) + 100, 400, 100)
+    exit_button = pygame.Rect(screen_width/2 - 200, screen_height*(1/2) + 250, 400, 100)
+    highscore_label = pygame.Rect(screen_width/2 - 200, 10, 400, 100)
     running = True
 
     while running:
@@ -66,6 +87,15 @@ def mainmenu(configuration):
         button(screen, "Play", font, (0, 0, 0), play_button)
         button(screen, "Options", font, (0, 0, 0), options_button)
         button(screen, "Exit", font, (0, 0, 0), exit_button)
+        button(screen, "Highscores:", font, (0, 0, 0), highscore_label)
+        scorelist = highscores()
+        separator = 125
+        for score_id, score in enumerate(scorelist):
+            score_text = f"{score_id + 1}. {score['player']}: {score['score']}"
+            text_surface = pygame.font.Font(None, 30).render(score_text, True, (0, 0, 0))
+            text_rect = text_surface.get_rect(center=(screen_width/2, separator))
+            screen.blit(text_surface, text_rect)
+            separator += 25
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -118,3 +148,5 @@ def nametracker(score, configuration):
 
         pygame.display.flip()
         clock.tick(60)
+
+    return None

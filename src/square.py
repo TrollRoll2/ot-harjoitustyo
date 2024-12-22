@@ -22,7 +22,7 @@ class Square:
             self.coordinates[1] > 3000 or
             self.collision is True):
             return True
-        
+
         return False
 
     def draw(self, screen):

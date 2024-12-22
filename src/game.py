@@ -27,12 +27,11 @@ def key_handler(key, player, configuration):
         player.move(0, configuration.variables["player_speed"], screen_width, screen_height)
     if key[pygame.K_d]:
         player.move(configuration.variables["player_speed"], 0, screen_width, screen_height)
-    if key[pygame.K_ESCAPE]:
-        return False
 
-def screen_render(screen, player, squares, font, score, configuration):
+def screen_render(screen, player, squares, score, configuration):
     screen_width, screen_height = configuration.variables["window_size"]
     screen.fill((255, 255, 255))
+    font = pygame.font.Font(None, 30)
     player.draw(screen)
     for square in squares:
         square.draw(screen)
@@ -47,7 +46,6 @@ def game(configuration):
     screen_width, screen_height = configuration.variables["window_size"]
     player = Sprite((screen_width/2, screen_height/2))
     squares = []
-    font = pygame.font.Font(None, 30)
     score = 0
     running = True
 
@@ -65,11 +63,13 @@ def game(configuration):
                     return score
 
         if random() < configuration.variables["square_spawnrate"]:
-            new_square = generate_square(screen_width + player.size, player.size, configuration.variables["square_speed"])
+            new_square = generate_square(screen_width + player.size,
+                                         player.size,
+                                         configuration.variables["square_speed"])
             squares.append(new_square)
         squares = [square for square in squares if not square.move()]
 
-        screen_render(screen, player, squares, font, score, configuration)
+        screen_render(screen, player, squares, score, configuration)
         clock.tick(60)
 
     return score
